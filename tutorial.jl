@@ -86,6 +86,28 @@ dump(ex1)
 
 [[1 2]; [3 4]]
 
+#Multi dimensional array indexing is trivial
+X = A[I_1, I_2, ..., I_n]
+
+#Any function can be applied on each element of an array (broadcasting) using the @. notation
+julia> x = 1.0:3.0; y = similar(x);
+@. y = x + 3 * sin(x) 
+# 3-element Array{Float64,1}:
+#  3.5244129544236893
+#  4.727892280477045
+#  3.4233600241796016
+
+
+# Julia has a convention of appending ! to the name of functions that modify their arguments (functions that mutate state)
+
+
+# Code can be data like in Lisp
+ex = quote
+    x = 1
+    y = 2
+    x + y
+end
+
 #Creating a server is simple
 #so is async programming
 using Sockets
@@ -99,4 +121,35 @@ using Sockets
     end
 end
 
-#Parallel computing
+# Packages like latexify let you
+# print in latex, expressions and matrices
+# output can be markdown, pdf etc..
+# If I'm working with scientific code I can have my scientific code right next to its math equation without having to write the math equation
+# Also helps you spot bugs in your code caues you'll see the equation printed for what's actually running!!
+
+# Performance tips
+# 1. Have no global variables
+2. 
+
+
+# Parallel programming
+# https://docs.julialang.org/en/v1/manual/parallel-computing/
+
+# 1. Create a channel to produce jobs
+# 2. Channel to consume jobs
+# 3. Make the consumer and sender  both send and solve jobs async
+# 4. Log how long the computation took 
+
+# Julia has support for multithreading and uses ```Atomic``` to avoid race condition
+
+# It's possible to call Julia from other languages such as 
+jl_function_t *func = jl_get_function(jl_base_module, "sqrt");
+jl_value_t *argument = jl_box_float64(2.0);
+jl_value_t *ret = jl_call1(func, argument);
+
+jl_value_t *jl_call(jl_function_t *f, jl_value_t **args, int32_t nargs);
+
+
+## Interesting links
+# https://www.youtube.com/watch?v=wpV0Nz-93Hk
+# http://courses.csail.mit.edu/18.337/2018/
