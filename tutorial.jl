@@ -120,6 +120,7 @@ using Sockets
                  write(sock, readline(sock, keep=true))
     end
 end
+end 
 
 # Packages like latexify let you
 # print in latex, expressions and matrices
@@ -127,9 +128,8 @@ end
 # If I'm working with scientific code I can have my scientific code right next to its math equation without having to write the math equation
 # Also helps you spot bugs in your code caues you'll see the equation printed for what's actually running!!
 
-# Performance tips
-# 1. Have no global variables
-2. 
+
+
 
 
 # Parallel programming

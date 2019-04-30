@@ -25,3 +25,8 @@ https://www.youtube.com/watch?v=R81pmvTP_Ik
 * It's possible to handtune pytorch and more to get speed up to Julia but the Flux compiler is smarter
 * Error messages from inside a TF graph will show the whole stack but with Zygote 
 * Wow: Can inspect LLVM code to see what zygote actually does and it's obvious how fast the code can be 
+
+# Differential equations
+Can build a DSL where you setup optimization constraints and objectives
+https://github.com/JuliaOpt/JuMP.jl/blob/master/examples/cannery.jl
+Language really makes you appreciate LISP like expressiveness
